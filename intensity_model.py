@@ -11,6 +11,7 @@ import numpy as np
 import os
 from matplotlib import pyplot as plt
 from roi import region_loc
+import pickle
 
 #Pulling in all of the images.  
 #Image 179 of each set is the final picture taken 
@@ -111,8 +112,16 @@ correlation = polyfit(x, y, 1)['correlation']
 print(polyfit(x, y, 1))
 
 
+control_hist_file = '/Users/jeromescelza/Box Sync/oova_sandbox/control_hist'
+np.save(control_hist_file, variant_1_HIST, allow_pickle=True, fix_imports=True)
 
+model_file = '/Users/jeromescelza/Box Sync/oova_sandbox/model'
 
+def save_obj(obj, name ):
+    with open(name + '.pkl', 'wb') as f:
+        pickle.dump(obj, f, pickle.HIGHEST_PROTOCOL)
+
+save_obj(polyfit(x, y, 1) , model_file)
 
 
 

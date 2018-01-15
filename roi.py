@@ -110,10 +110,7 @@ def region_loc(f):
     smooth_data = pd.rolling_mean(signal_series,10)
     
     smooth_set = pd.Series(smooth_data)
-    
-    
-    
-    
+
     spl = UnivariateSpline(x, y)
     tm  = signal.argrelextrema(spl(x), np.less)
     
