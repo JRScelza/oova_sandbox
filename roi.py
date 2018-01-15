@@ -6,61 +6,34 @@ Created on Tue Aug  1 16:35:10 2017
 @author: jeromescelza
 """
 
-
-#this is actually going to end up being the function that
-#determines where the region of interest is on our strip
-
-
-
 import cv2
 import numpy as np
 import os
-from matplotlib import pyplot as plt
-import time
-
 import pandas as pd
 
-
-from pylab import *
 from scipy.interpolate import UnivariateSpline
 from scipy import signal
 
 
-
-
-
-
 def region_loc(f):
     f_4 = os.path.expanduser(f)
-
     im = cv2.imread(f_4)
-    
     variant = cv2.cvtColor(im, cv2.COLOR_BGR2HSV)
-
     channel_1, channel_2, channel_3 = variant[:,:,0] ,variant[:,:,1] ,variant[:,:,2]
 
     x = range(0,1944)
     y = channel_3[:,1100]
-    
     cv2.line(variant,(1000,0),(1000,1944),(0,0,255),15)
     
     
     signal2 = y
-    
-    
     signal_series = pd.Series(signal2)
-    
     smooth_data = pd.rolling_mean(signal_series,10)
-    
     smooth_set = pd.Series(smooth_data)
-    
-    
-    
-    
+
     spl = UnivariateSpline(x, y)
     tm  = signal.argrelextrema(spl(x), np.less)
-    
-    
+
     sm_factor = 5000
     
     while len(tm[0]) > 5:

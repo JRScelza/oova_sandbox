@@ -11,8 +11,7 @@ import cv2
 import numpy as np
 import os
 from matplotlib import pyplot as plt
-import time
-from Max_Min import region_loc
+from roi import region_loc
 
 #Pulling in all of the images.  Image 179 of each set is the final picture taken (gives the most amount of time to make sure the test strip is stable)
 
@@ -23,6 +22,7 @@ f_4 = os.path.expanduser("~/Desktop/ImagesOova/variant_4_1/image179.jpg")
 f_5 = os.path.expanduser("~/Desktop/ImagesOova/variant_5_1/image179.jpg")
 f_6 = os.path.expanduser("~/Desktop/ImagesOova/variant_6_1/image179.jpg")
 f_blank = os.path.expanduser("~/Desktop/ImagesOova/variant_blank_1/image179.jpg")
+
 
 #You can pull in a random image from variant_1 to test the code.  Through the time series the image line intensity of variant_1 gets darker and darker.  You can grab it at
 #different points to "pretend" you have more test strips.
@@ -203,7 +203,7 @@ variables = [thresh1,thresh2, thresh3,thresh5,thresh4,thresh6 ]
 
 
 
-"
+
 
 
 

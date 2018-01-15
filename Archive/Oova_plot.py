@@ -5,7 +5,6 @@ Created on Wed Mar  8 19:05:22 2017
 
 @author: jeromescelza
 """
-import pymysql
 import requests
 import json
 import pprint
