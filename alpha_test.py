@@ -85,6 +85,8 @@ def poly_lin(value, m, b):
     return(solution)
 
 answer = poly_lin(value, m , b)
+answer = float("{0:.2f}".format(answer))
+
 cv2.rectangle(variant_test,(spike_pt + 70 , bounds - 100),(spike_pt + 1350, bounds + 100),(0,255,0),10)
 
 
